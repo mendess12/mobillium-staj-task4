@@ -4,18 +4,54 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/recycler_row_iv"
+        android:layout_width="@dimen/width_100dp"
+        android:layout_height="@dimen/width_100dp"
+        android:layout_marginStart="@dimen/margin_10dp"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:layout_marginBottom="@dimen/margin_10dp"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/recycler_row_name_tv"
         style="@style/medium_20sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_32dp"
-        android:layout_marginBottom="@dimen/margin_32dp"
         android:text="@string/name"
-        app:layout_constraintBottom_toTopOf="@id/recycler_row_tb"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/recycler_row_iv"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/recycler_row_year_tv"
+        style="@style/medium_20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_16dp"
+        android:layout_marginBottom="@dimen/margin_16dp"
+        android:text="@string/year"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/recycler_row_country_tv"
+        app:layout_constraintStart_toEndOf="@+id/recycler_row_iv"
+        app:layout_constraintTop_toBottomOf="@id/recycler_row_name_tv" />
+
+    <TextView
+        android:id="@+id/recycler_row_country_tv"
+        style="@style/medium_20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_16dp"
+        android:layout_marginBottom="@dimen/margin_16dp"
+        android:text="@string/country"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/recycler_row_year_tv"
+        app:layout_constraintTop_toBottomOf="@id/recycler_row_name_tv" />
 
     <View
         android:id="@+id/recycler_row_tb"
@@ -25,7 +61,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recycler_row_name_tv" />
+        app:layout_constraintTop_toBottomOf="@+id/recycler_row_country_tv" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
