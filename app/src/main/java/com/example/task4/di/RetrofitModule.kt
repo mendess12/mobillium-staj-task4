@@ -1,6 +1,5 @@
 package com.example.task4.di
 
-import com.example.task4.model.CryptoDetailItem
 import com.example.task4.model.CryptoListItem
 import com.example.task4.service.CryptoAPI
 import okhttp3.OkHttpClient
@@ -19,10 +18,6 @@ class RetrofitModule {
 
     fun getListData(): Call<List<CryptoListItem>> {
         return retrofitBuilder.getCryptoListData()
-    }
-
-    fun getDetailDat() :Call<List<CryptoDetailItem>>{
-        return retrofitBuilder.getCryptoDetailData()
     }
 
     companion object {
