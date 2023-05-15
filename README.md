@@ -68,4 +68,6 @@
 
 ### UI Tasarımları
 
+![Ekran Görüntüsü (75)](https://github.com/mendess12/mobillium-staj-task4/assets/76566952/6bb4c724-e875-4950-af33-06abe8f89c11)
+
 
