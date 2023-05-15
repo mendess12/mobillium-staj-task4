@@ -6,12 +6,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.task4.R
 import com.example.task4.model.CryptoListItem
-
-import com.squareup.picasso.Picasso
+import com.example.task4.util.downloadFromUrl
 
 class CryptoAdapter(private val cryptoData: List<CryptoListItem>, private val listener: Listener) :
     RecyclerView.Adapter<CryptoAdapter.MyViewHolder>() {
-
 
     interface Listener {
         fun onItemClick(cryptoData: CryptoListItem)
@@ -47,9 +45,7 @@ class CryptoAdapter(private val cryptoData: List<CryptoListItem>, private val li
         holder.name.text = cryptoDataPosition.name
         holder.country.text = cryptoDataPosition.country
         holder.year.text = cryptoDataPosition.yearEstablished.toString()
-        Picasso.get()
-            .load(cryptoDataPosition.image)
-            .into(holder.image)
+        holder.image.downloadFromUrl(cryptoDataPosition.image)
 
         holder.itemView.setOnClickListener {
             listener.onItemClick(cryptoData[position])
