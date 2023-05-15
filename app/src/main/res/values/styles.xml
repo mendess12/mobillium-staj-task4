@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="medium_20sp" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/text_size_20sp</item>
+        <item name="android:padding">@dimen/padding_5dp</item>
+        <item name="fontFamily">@font/inter_medium</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="medium_16sp" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/text_size_20sp</item>
+        <item name="android:padding">@dimen/padding_5dp</item>
+        <item name="fontFamily">@font/inter_medium</item>
+        <item name="android:textColor">@color/text_color</item>
+    </style>
+
+</resources>

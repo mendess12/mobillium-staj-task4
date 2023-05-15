@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Task4</string>
+    <string name="name">Name</string>
+    <string name="year">Year</string>
+    <string name="country">Country</string>
+    <string name="description">Description</string>
+    <string name="trust_score">Trust Score</string>
+    <string name="trust_score_rank">Trust Score Rank</string>
+    <string name="trade_volume_24h_btc">Trade Volume 1</string>
+    <string name="trade_volume_24h_btc_normalized">Trade Volume 2</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
