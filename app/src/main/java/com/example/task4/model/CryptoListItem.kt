@@ -1,6 +1,7 @@
 package com.example.task4.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class CryptoListItem(
     val country: String? = null,
@@ -18,4 +19,4 @@ data class CryptoListItem(
     val trustScoreRank: Int,
     @SerializedName("year_established")
     val yearEstablished: Int
-)
+) : Serializable
