@@ -51,7 +51,7 @@ class ListFragment : Fragment(), CryptoAdapter.Listener {
     }
 
     override fun onItemClick(cryptoData: CryptoListItem) {
-        val action = ListFragmentDirections.actionListFragmentToDetailFragment()
+        val action = ListFragmentDirections.actionListFragmentToDetailFragment(cryptoData)
         findNavController().navigate(action)
     }
 }
