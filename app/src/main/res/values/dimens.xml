@@ -23,6 +23,7 @@
     <dimen name="height_1dp">1dp</dimen>
     <dimen name="height_32dp">32dp</dimen>
     <dimen name="height_100dp">100dp</dimen>
+    <dimen name="height_150dp">150dp</dimen>
 
     <!-- radius size -->
     <dimen name="radius_8dp">8dp</dimen>
