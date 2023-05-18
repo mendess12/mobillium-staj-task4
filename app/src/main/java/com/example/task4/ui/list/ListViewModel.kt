@@ -18,7 +18,7 @@ class ListViewModel : ViewModel() {
 
     fun getCryptoDataFromAPI() {
         viewModelScope.launch {
-            retrofitModule.getListData().enqueue(
+            retrofitModule.retrofitBuilder.getCryptoListData().enqueue(
                 object : Callback<List<CryptoListItem>> {
                     override fun onResponse(
                         call: Call<List<CryptoListItem>>,
@@ -32,10 +32,7 @@ class ListViewModel : ViewModel() {
                         cryptoDataList.value = null
                         Log.d("Error message", t.printStackTrace().toString())
                     }
-
                 })
-
         }
     }
-
 }
