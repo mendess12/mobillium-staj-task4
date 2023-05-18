@@ -12,11 +12,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
+    
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/detail_screen_iv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/width_100dp"
+        android:layout_height="@dimen/width_100dp"
         android:layout_marginStart="@dimen/margin_10dp"
         android:layout_marginTop="@dimen/margin_16dp"
         android:layout_marginBottom="@dimen/margin_10dp"
@@ -67,18 +67,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/detail_screen_year_tv" />
 
-    <TextView
-        android:id="@+id/detail_screen_description_tv"
-        style="@style/medium_16sp"
+    <ScrollView
+        android:id="@+id/scroll_view_2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/height_150dp"
         android:layout_marginLeft="@dimen/margin_16dp"
         android:layout_marginTop="@dimen/margin_8dp"
         android:layout_marginRight="@dimen/margin_16dp"
-        android:text="@string/description"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/detail_screen_country_tv" />
+        app:layout_constraintTop_toBottomOf="@id/detail_screen_country_tv">
+
+        <TextView
+            android:id="@+id/detail_screen_description_tv"
+            style="@style/medium_16sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/description" />
+    </ScrollView>
 
     <TextView
         android:id="@+id/detail_screen_trust_score_tv"
@@ -92,7 +98,7 @@
         android:text="@string/trust_score"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/detail_screen_description_tv" />
+        app:layout_constraintTop_toBottomOf="@id/scroll_view_2" />
 
     <TextView
         android:id="@+id/detail_screen_trust_score_rank_tv"
