@@ -17,5 +17,7 @@ data class CryptoDetail(
     @SerializedName("trust_score_rank")
     val trustScoreRank: Int,
     @SerializedName("year_established")
-    val yearEstablished: Int
+    val yearEstablished: Int,
+    @SerializedName("facebook_url")
+    val facebookUrl: String
 )

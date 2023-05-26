@@ -3,4 +3,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="text_color">#959494</color>
+    <color name="url_color">#03A9F4</color>
 </resources>

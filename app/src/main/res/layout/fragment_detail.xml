@@ -12,7 +12,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    
+
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/detail_screen_iv"
         android:layout_width="@dimen/width_100dp"
@@ -28,7 +28,7 @@
     <TextView
         android:id="@+id/detail_screen_name_tv"
         style="@style/medium_20sp"
-        android:layout_width="match_parent"
+        android:layout_width="@dimen/margin_0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/margin_16dp"
         android:layout_marginTop="@dimen/margin_16dp"
@@ -42,10 +42,10 @@
     <TextView
         android:id="@+id/detail_screen_year_tv"
         style="@style/medium_16sp"
-        android:layout_width="match_parent"
+        android:layout_width="@dimen/margin_0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/margin_16dp"
-        android:layout_marginTop="@dimen/margin_8dp"
+        android:layout_marginTop="@dimen/margin_4dp"
         android:layout_marginRight="@dimen/margin_16dp"
         android:gravity="center"
         android:text="@string/year"
@@ -56,10 +56,10 @@
     <TextView
         android:id="@+id/detail_screen_country_tv"
         style="@style/medium_16sp"
-        android:layout_width="match_parent"
+        android:layout_width="@dimen/margin_0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/margin_16dp"
-        android:layout_marginTop="@dimen/margin_8dp"
+        android:layout_marginTop="@dimen/margin_4dp"
         android:layout_marginRight="@dimen/margin_16dp"
         android:gravity="center"
         android:text="@string/country"
@@ -72,7 +72,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_150dp"
         android:layout_marginLeft="@dimen/margin_16dp"
-        android:layout_marginTop="@dimen/margin_8dp"
+        android:layout_marginTop="@dimen/margin_4dp"
         android:layout_marginRight="@dimen/margin_16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -89,10 +89,10 @@
     <TextView
         android:id="@+id/detail_screen_trust_score_tv"
         style="@style/medium_16sp"
-        android:layout_width="match_parent"
+        android:layout_width="@dimen/margin_0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/margin_16dp"
-        android:layout_marginTop="@dimen/margin_8dp"
+        android:layout_marginTop="@dimen/margin_4dp"
         android:layout_marginRight="@dimen/margin_16dp"
         android:gravity="center"
         android:text="@string/trust_score"
@@ -103,10 +103,10 @@
     <TextView
         android:id="@+id/detail_screen_trust_score_rank_tv"
         style="@style/medium_16sp"
-        android:layout_width="match_parent"
+        android:layout_width="@dimen/margin_0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/margin_16dp"
-        android:layout_marginTop="@dimen/margin_8dp"
+        android:layout_marginTop="@dimen/margin_4dp"
         android:layout_marginRight="@dimen/margin_16dp"
         android:gravity="center"
         android:text="@string/trust_score_rank"
@@ -117,10 +117,10 @@
     <TextView
         android:id="@+id/detail_screen_trade_volume_24h_btc_tv"
         style="@style/medium_16sp"
-        android:layout_width="match_parent"
+        android:layout_width="@dimen/margin_0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/margin_16dp"
-        android:layout_marginTop="@dimen/margin_8dp"
+        android:layout_marginTop="@dimen/margin_4dp"
         android:layout_marginRight="@dimen/margin_16dp"
         android:gravity="center"
         android:text="@string/trade_volume_24h_btc"
@@ -131,15 +131,39 @@
     <TextView
         android:id="@+id/detail_screen_trade_volume_24h_btc_normalized_tv"
         style="@style/medium_16sp"
-        android:layout_width="match_parent"
+        android:layout_width="@dimen/margin_0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/margin_16dp"
-        android:layout_marginTop="@dimen/margin_8dp"
+        android:layout_marginTop="@dimen/margin_4dp"
         android:layout_marginRight="@dimen/margin_16dp"
         android:gravity="center"
         android:text="@string/trade_volume_24h_btc_normalized"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/detail_screen_trade_volume_24h_btc_tv" />
+
+    <TextView
+        android:id="@+id/detail_screen_facebook_url"
+        style="@style/medium_16sp"
+        android:layout_width="@dimen/margin_0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_16dp"
+        android:layout_marginTop="@dimen/margin_4dp"
+        android:layout_marginRight="@dimen/margin_16dp"
+        android:text="@string/facebook_url"
+        android:textColor="@color/url_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/detail_screen_trade_volume_24h_btc_normalized_tv" />
+
+    <WebView
+        android:id="@+id/web_view"
+        android:layout_width="@dimen/margin_0dp"
+        android:layout_height="@dimen/margin_0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

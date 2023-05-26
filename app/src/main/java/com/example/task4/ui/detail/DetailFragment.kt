@@ -60,6 +60,11 @@ class DetailFragment : Fragment() {
             detailScreenTradeVolume24hBtcTv.text = cryptoDetail.tradeVolume.toString()
             detailScreenTradeVolume24hBtcNormalizedTv.text =
                 cryptoDetail.tradeVolumeNormalized.toString()
+            detailScreenFacebookUrl.text = cryptoDetail.facebookUrl
+
+            detailScreenFacebookUrl.setOnClickListener {
+                webView.loadUrl(cryptoDetail.facebookUrl)
+            }
         }
     }
 
