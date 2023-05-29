@@ -58,11 +58,11 @@
 * [Retrofit](https://square.github.io/retrofit/)
 * [LiveData Overview](https://developer.android.com/topic/libraries/architecture/livedata)
 * [Picasso](https://square.github.io/picasso/)
-* [Fragment & Fragment View lifecycle]()
-* [Activity lifecycle](https://developer.android.com/guide/fragments/lifecycle)
-* [ViewModel and ViewModel lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle)
-* [ViewModel Scoping APIs](https://developer.android.com/topic/libraries/architecture/viewmodel)
-* [Handling Lifecycles with Lifecycle-Aware Components](https://developer.android.com/topic/libraries/architecture/viewmodel/viewmodel-apis)
+* [Fragment & Fragment View lifecycle](https://developer.android.com/guide/fragments/lifecycle)
+* [Activity lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle)
+* [ViewModel and ViewModel lifecycle](https://developer.android.com/topic/libraries/architecture/viewmodel)
+* [ViewModel Scoping APIs](https://developer.android.com/topic/libraries/architecture/viewmodel/viewmodel-apis)
+* [Handling Lifecycles with Lifecycle-Aware Components](https://developer.android.com/topic/libraries/architecture/lifecycle)
 * [Learn Jetpack Navigation - Codelab](https://developer.android.com/codelabs/android-navigation#0)
 <hr>
 
