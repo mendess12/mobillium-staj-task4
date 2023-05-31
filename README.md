@@ -67,8 +67,6 @@
 <hr>
 
 ### UI Tasarımları
-
-![Ekran Görüntüsü (75)](https://github.com/mendess12/mobillium-staj-task4/assets/76566952/6bb4c724-e875-4950-af33-06abe8f89c11)![untitled](https://github.com/mendess12/mobillium-staj-task4/assets/76566952/187c60be-95d2-4cfe-a01c-acd42c8edc62)
-
+![Ekran Görüntüsü (75)](https://github.com/mendess12/mobillium-staj-task4/assets/76566952/6bb4c724-e875-4950-af33-06abe8f89c11) ![untitled](https://github.com/mendess12/mobillium-staj-task4/assets/76566952/741ca2df-3506-4d6d-8e4c-744d5085d168)
 
 
