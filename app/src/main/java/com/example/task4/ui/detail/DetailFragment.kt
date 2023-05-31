@@ -31,7 +31,7 @@ class DetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentDetailBinding.bind(view)
 
-        viewModel.cryptoDetailDataFromAPI(args.crypto.id)
+        viewModel.cryptoDetailDataFromAPI(args.cryptoId)
         observeLiveData()
         binding.detailScreenToolBar.backToolBar.setOnClickListener {
             findNavController().popBackStack()

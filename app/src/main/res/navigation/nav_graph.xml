@@ -18,8 +18,9 @@
         android:name="com.example.task4.ui.detail.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail">
+
         <argument
-            android:name="crypto"
-            app:argType="com.example.task4.model.CryptoListItem" />
+            android:name="cryptoId"
+            app:argType="string" />
     </fragment>
 </navigation>

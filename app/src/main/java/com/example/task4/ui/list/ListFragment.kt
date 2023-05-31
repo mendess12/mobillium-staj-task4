@@ -8,13 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.task4.R
 import com.example.task4.databinding.FragmentListBinding
-import com.example.task4.model.CryptoListItem
 
-class ListFragment : Fragment(), CryptoAdapter.Listener {
+class ListFragment : Fragment() {
 
     private lateinit var binding: FragmentListBinding
     private val viewModel: ListViewModel by viewModels()
@@ -42,16 +40,11 @@ class ListFragment : Fragment(), CryptoAdapter.Listener {
     private fun observeLiveData() {
         viewModel.cryptoDataList.observe(viewLifecycleOwner) {
             if (it != null) {
-                dataAdapter = CryptoAdapter(it, this@ListFragment)
+                dataAdapter = CryptoAdapter(it)
                 binding.recyclerView.adapter = dataAdapter
             } else {
                 Toast.makeText(requireContext(), "List is empty!", Toast.LENGTH_LONG).show()
             }
         }
-    }
-
-    override fun onItemClick(cryptoData: CryptoListItem) {
-        val action = ListFragmentDirections.actionListFragmentToDetailFragment(cryptoData)
-        findNavController().navigate(action)
     }
 }

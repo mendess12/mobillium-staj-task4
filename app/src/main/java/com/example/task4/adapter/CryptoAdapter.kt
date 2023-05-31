@@ -3,24 +3,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.task4.R
 import com.example.task4.model.CryptoListItem
+import com.example.task4.ui.list.ListFragmentDirections
 import com.example.task4.util.downloadFromUrl
 
-class CryptoAdapter(private val cryptoData: List<CryptoListItem>, private val listener: Listener) :
+class CryptoAdapter(private val cryptoData: List<CryptoListItem>) :
     RecyclerView.Adapter<CryptoAdapter.MyViewHolder>() {
 
-    interface Listener {
-        fun onItemClick(cryptoData: CryptoListItem)
-    }
-
     class MyViewHolder(iteView: View) : RecyclerView.ViewHolder(iteView) {
-        fun bind(cryptoData: CryptoListItem, listener: Listener) {
-            itemView.setOnClickListener {
-                listener.onItemClick(cryptoData)
-            }
-        }
 
         var name: TextView = iteView.findViewById(R.id.recycler_row_name_tv)
         var year: TextView = iteView.findViewById(R.id.recycler_row_year_tv)
@@ -39,8 +32,6 @@ class CryptoAdapter(private val cryptoData: List<CryptoListItem>, private val li
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
-        holder.bind(cryptoData[position], listener)
-
         val cryptoDataPosition = cryptoData[position]
         holder.name.text = cryptoDataPosition.name
         holder.country.text = cryptoDataPosition.country
@@ -48,7 +39,9 @@ class CryptoAdapter(private val cryptoData: List<CryptoListItem>, private val li
         holder.image.downloadFromUrl(cryptoDataPosition.image)
 
         holder.itemView.setOnClickListener {
-            listener.onItemClick(cryptoData[position])
+            val action =
+                ListFragmentDirections.actionListFragmentToDetailFragment(cryptoDataPosition.id)
+            Navigation.findNavController(it).navigate(action)
         }
     }
 }
