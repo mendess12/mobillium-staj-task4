@@ -6,11 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.task4.R
 import com.example.task4.databinding.FragmentListBinding
+import com.example.task4.util.showSnackBar
 
 class ListFragment : Fragment() {
 
@@ -43,7 +43,7 @@ class ListFragment : Fragment() {
                 dataAdapter = CryptoAdapter(it)
                 binding.recyclerView.adapter = dataAdapter
             } else {
-                Toast.makeText(requireContext(), "List is empty!", Toast.LENGTH_LONG).show()
+                view?.showSnackBar("List is empty!")
             }
         }
     }

@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -13,6 +12,7 @@ import com.example.task4.R
 import com.example.task4.databinding.FragmentDetailBinding
 import com.example.task4.model.CryptoDetail
 import com.example.task4.util.downloadFromUrl
+import com.example.task4.util.showSnackBar
 
 class DetailFragment : Fragment() {
 
@@ -43,7 +43,7 @@ class DetailFragment : Fragment() {
             if (it != null) {
                 printData(it)
             } else {
-                Toast.makeText(requireContext(), "Detail list is empty", Toast.LENGTH_LONG).show()
+                view?.showSnackBar("Detail list is empty!")
             }
         }
     }
