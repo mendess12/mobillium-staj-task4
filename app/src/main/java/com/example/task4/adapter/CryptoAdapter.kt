@@ -10,7 +10,7 @@ import com.example.task4.model.CryptoListItem
 import com.example.task4.ui.list.ListFragmentDirections
 import com.example.task4.util.downloadFromUrl
 
-class CryptoAdapter(private val cryptoData: List<CryptoListItem>) :
+class CryptoAdapter( private var cryptoData: List<CryptoListItem>) :
     RecyclerView.Adapter<CryptoAdapter.MyViewHolder>() {
 
     class MyViewHolder(iteView: View) : RecyclerView.ViewHolder(iteView) {
@@ -43,5 +43,10 @@ class CryptoAdapter(private val cryptoData: List<CryptoListItem>) :
                 ListFragmentDirections.actionListFragmentToDetailFragment(cryptoDataPosition.id)
             Navigation.findNavController(it).navigate(action)
         }
+    }
+
+    fun updateData(cryptoData: List<CryptoListItem>) {
+        this.cryptoData = cryptoData
+        notifyDataSetChanged()
     }
 }

@@ -10,13 +10,15 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.task4.R
 import com.example.task4.databinding.FragmentListBinding
+import com.example.task4.model.CryptoListItem
 import com.example.task4.util.showSnackBar
 
 class ListFragment : Fragment() {
 
     private lateinit var binding: FragmentListBinding
     private val viewModel: ListViewModel by viewModels()
-    private lateinit var dataAdapter: CryptoAdapter
+    private var cryptoList: ArrayList<CryptoListItem> = arrayListOf()
+    private var dataAdapter = CryptoAdapter(cryptoList)
     private lateinit var linearLayoutManager: LinearLayoutManager
 
     override fun onCreateView(
@@ -33,6 +35,7 @@ class ListFragment : Fragment() {
         binding.recyclerView.setHasFixedSize(true)
         linearLayoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.layoutManager = linearLayoutManager
+        binding.recyclerView.adapter = dataAdapter
         observeLiveData()
         viewModel.getCryptoDataFromAPI()
     }
@@ -40,8 +43,7 @@ class ListFragment : Fragment() {
     private fun observeLiveData() {
         viewModel.cryptoDataList.observe(viewLifecycleOwner) {
             if (it != null) {
-                dataAdapter = CryptoAdapter(it)
-                binding.recyclerView.adapter = dataAdapter
+                dataAdapter.updateData(it)
             } else {
                 view?.showSnackBar("List is empty!")
             }
