@@ -56,6 +56,7 @@
 
 ### Kaynaklar
 * [Retrofit](https://square.github.io/retrofit/)
+* [Dagger-Hilt](https://developer.android.com/training/dependency-injection/hilt-android)
 * [LiveData Overview](https://developer.android.com/topic/libraries/architecture/livedata)
 * [Picasso](https://square.github.io/picasso/)
 * [Fragment & Fragment View lifecycle](https://developer.android.com/guide/fragments/lifecycle)
