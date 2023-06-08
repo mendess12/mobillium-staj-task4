@@ -13,7 +13,9 @@ import com.example.task4.databinding.FragmentDetailBinding
 import com.example.task4.model.CryptoDetail
 import com.example.task4.util.downloadFromUrl
 import com.example.task4.util.showSnackBar
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DetailFragment : Fragment() {
 
     private lateinit var binding: FragmentDetailBinding

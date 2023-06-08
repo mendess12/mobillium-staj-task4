@@ -1,13 +1,23 @@
 package com.example.task4.di
 
 import com.example.task4.service.CryptoAPI
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class RetrofitModule {
+@Module
+@InstallIn(SingletonComponent::class)
+open class RetrofitModule @Inject constructor() {
 
-    val retrofitBuilder: CryptoAPI = Retrofit.Builder()
+    @Provides
+    @Singleton
+    fun retrofitBuilder(): CryptoAPI = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .client(OkHttpClient())

@@ -6,19 +6,21 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.task4.di.RetrofitModule
 import com.example.task4.model.CryptoListItem
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import javax.inject.Inject
 
-class ListViewModel : ViewModel() {
+@HiltViewModel
+class ListViewModel @Inject constructor(private val retrofitModule: RetrofitModule) : ViewModel() {
 
-    private val retrofitModule = RetrofitModule()
     val cryptoDataList = MutableLiveData<List<CryptoListItem>?>()
 
     fun getCryptoDataFromAPI() {
         viewModelScope.launch {
-            retrofitModule.retrofitBuilder.getCryptoListData().enqueue(
+            retrofitModule.retrofitBuilder().getCryptoListData().enqueue(
                 object : Callback<List<CryptoListItem>> {
                     override fun onResponse(
                         call: Call<List<CryptoListItem>>,
