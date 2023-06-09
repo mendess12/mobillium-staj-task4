@@ -39,7 +39,7 @@ class ListFragment : Fragment() {
         binding.recyclerView.layoutManager = linearLayoutManager
         binding.recyclerView.adapter = dataAdapter
         observeLiveData()
-        viewModel.getCryptoDataFromAPI()
+        viewModel.refreshData()
     }
 
     private fun observeLiveData() {
