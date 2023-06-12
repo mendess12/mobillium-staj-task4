@@ -1,20 +1,18 @@
 package com.example.task4.ui.list
 
 import android.app.Application
-import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.viewModelScope
 import com.example.task4.dao.CryptoDatabase
 import com.example.task4.di.RetrofitModule
 import com.example.task4.model.CryptoListItem
 import com.example.task4.util.BaseViewModel
 import com.example.task4.util.CustomSharedPreferences
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
@@ -25,7 +23,7 @@ class ListViewModel @Inject constructor(
 
     val cryptoDataList = MutableLiveData<List<CryptoListItem>?>()
     private var customSharedPreferences = CustomSharedPreferences(getApplication())
-    private var refreshTime = 10 * 60 * 1000 * 1000 * 1000L
+    private var refreshTime = 0.5 * 60 * 1000 * 1000 * 1000L
 
     fun refreshData() {
         val updateTime = customSharedPreferences.getTime()
@@ -34,7 +32,6 @@ class ListViewModel @Inject constructor(
         } else {
             getCryptoDataFromAPI()
         }
-
     }
 
     private fun getDataFromSQLite() {
@@ -45,33 +42,28 @@ class ListViewModel @Inject constructor(
         }
     }
 
-    fun getCryptoDataFromAPI() {
-        viewModelScope.launch {
-            retrofitModule.retrofitBuilder().getCryptoListData().enqueue(
-                object : Callback<List<CryptoListItem>> {
-                    override fun onResponse(
-                        call: Call<List<CryptoListItem>>,
-                        response: Response<List<CryptoListItem>>
-                    ) {
-                        if (response.isSuccessful) {
-                            response.body()?.let {
-                                storeInSQLite(it)
-                                Toast.makeText(
-                                    getApplication(),
-                                    "Crypto data from API",
-                                    Toast.LENGTH_LONG
-                                ).show()
-                            }
-                        } else {
-                            cryptoDataList.value = null
-                        }
-                    }
+    /*
+    *
+    * bu task'te iki coroutine var çünkü ilk olarak Dispatchers.IO ile çağırıyoruz
+    * ve son olarak Dispatchers.Main ile çağırıyoruz. Böylece kullanıcı arayüzünü ana olarak güncelliyoruz.
+    *
+    * CoroutineScope yerine viewModelScope kullanılabilir
+    * */
 
-                    override fun onFailure(call: Call<List<CryptoListItem>>, t: Throwable) {
-                        cryptoDataList.value = null
-                        Log.d("Error message", t.printStackTrace().toString())
+    private fun getCryptoDataFromAPI() {
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = retrofitModule.retrofitBuilder().getCryptoListData()
+            withContext(Dispatchers.Main) {
+                if (response.isSuccessful) {
+                    response.body()?.let {
+                        storeInSQLite(it)
+                        Toast.makeText(getApplication(), "Crypto Data from API", Toast.LENGTH_LONG)
+                            .show()
                     }
-                })
+                } else {
+                    cryptoDataList.value = null
+                }
+            }
         }
     }
 
