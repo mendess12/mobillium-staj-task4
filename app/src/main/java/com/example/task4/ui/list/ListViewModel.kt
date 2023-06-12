@@ -9,8 +9,10 @@ import com.example.task4.model.CryptoListItem
 import com.example.task4.util.BaseViewModel
 import com.example.task4.util.CustomSharedPreferences
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -24,6 +26,10 @@ class ListViewModel @Inject constructor(
     val cryptoDataList = MutableLiveData<List<CryptoListItem>?>()
     private var customSharedPreferences = CustomSharedPreferences(getApplication())
     private var refreshTime = 0.5 * 60 * 1000 * 1000 * 1000L
+    var job: Job? = null
+    private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
+        Toast.makeText(getApplication(), throwable.localizedMessage, Toast.LENGTH_LONG).show()
+    }
 
     fun refreshData() {
         val updateTime = customSharedPreferences.getTime()
@@ -45,13 +51,13 @@ class ListViewModel @Inject constructor(
     /*
     *
     * bu task'te iki coroutine var çünkü ilk olarak Dispatchers.IO ile çağırıyoruz
-    * ve son olarak Dispatchers.Main ile çağırıyoruz. Böylece kullanıcı arayüzünü ana olarak güncelliyoruz.
+    * ve son olarak Dispatchers.Main ile çağırıyoruz. Böylece kullanıcı arayüzünü main olarak güncelliyoruz.
     *
     * CoroutineScope yerine viewModelScope kullanılabilir
     * */
 
     private fun getCryptoDataFromAPI() {
-        CoroutineScope(Dispatchers.IO).launch {
+        job = CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
             val response = retrofitModule.retrofitBuilder().getCryptoListData()
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful) {
@@ -84,5 +90,10 @@ class ListViewModel @Inject constructor(
             showCrypto(list)
         }
         customSharedPreferences.saveTime(System.nanoTime())
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        job?.cancel()
     }
 }
