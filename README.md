@@ -19,8 +19,14 @@
 <pre>
 - Plugin 
  id 'androidx.navigation.safeargs.kotlin'
+ id 'dagger.hilt.android.plugin'
+ id 'kotlin-kapt'
  
 - build.gradle(:app)
+
+def roomVersion = '2.5.1'
+def nav_version = "2.5.3"
+
  //recyclerView
     implementation 'androidx.recyclerview:recyclerview:1.3.0'
 
@@ -32,11 +38,25 @@
 
     //okhttp
     implementation "com.squareup.okhttp3:logging-interceptor:4.9.0"
+    
+    // coroutine
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2"
 
     //view model and livedata
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.6.1"
     implementation "androidx.lifecycle:lifecycle-viewmodel:2.6.1"
+    
+    //room
+    implementation "androidx.room:room-runtime:$roomVersion"
+    implementation "androidx.legacy:legacy-support-v4:1.0.0"
+    kapt "androidx.room:room-compiler:$roomVersion"
+    implementation "androidx.room:room-ktx:$roomVersion"
+    
+    //dagger-hilt
+    implementation 'com.google.dagger:hilt-android:2.44'
+    kapt 'com.google.dagger:hilt-compiler:2.44'
 
     //navigation component
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
@@ -51,12 +71,15 @@
 - build.gradle(:project)
     def nav_version = "2.5.3"
     classpath("androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version")
+    classpath("com.google.dagger:hilt-android-gradle-plugin:2.44")
 </pre>
 <hr>
 
 ### Kaynaklar
 * [Retrofit](https://square.github.io/retrofit/)
 * [Dagger-Hilt](https://developer.android.com/training/dependency-injection/hilt-android)
+* [Room Database](https://developer.android.com/training/data-storage/room)
+* [Coroutine](https://medium.com/android-beginners/mvvm-with-kotlin-coroutines-and-retrofit-example-d3f5f3b09050)
 * [LiveData Overview](https://developer.android.com/topic/libraries/architecture/livedata)
 * [Picasso](https://square.github.io/picasso/)
 * [Fragment & Fragment View lifecycle](https://developer.android.com/guide/fragments/lifecycle)
