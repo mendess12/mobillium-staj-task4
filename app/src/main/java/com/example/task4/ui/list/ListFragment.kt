@@ -12,7 +12,9 @@ import com.example.task4.R
 import com.example.task4.databinding.FragmentListBinding
 import com.example.task4.model.CryptoListItem
 import com.example.task4.util.showSnackBar
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ListFragment : Fragment() {
 
     private lateinit var binding: FragmentListBinding
