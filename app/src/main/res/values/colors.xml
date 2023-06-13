@@ -4,4 +4,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="text_color">#959494</color>
     <color name="url_color">#03A9F4</color>
+    <color name="search_view_background">#6750A3</color>
 </resources>
