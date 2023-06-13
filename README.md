@@ -80,6 +80,7 @@ def nav_version = "2.5.3"
 * [Dagger-Hilt](https://developer.android.com/training/dependency-injection/hilt-android)
 * [Room Database](https://developer.android.com/training/data-storage/room)
 * [Coroutine](https://medium.com/android-beginners/mvvm-with-kotlin-coroutines-and-retrofit-example-d3f5f3b09050)
+* [Filterable](https://medium.com/nerd-for-tech/implem-search-in-recyclerview-5bc18b547f4f)
 * [LiveData Overview](https://developer.android.com/topic/libraries/architecture/livedata)
 * [Picasso](https://square.github.io/picasso/)
 * [Fragment & Fragment View lifecycle](https://developer.android.com/guide/fragments/lifecycle)
