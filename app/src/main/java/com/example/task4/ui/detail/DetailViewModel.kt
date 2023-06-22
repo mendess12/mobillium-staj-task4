@@ -25,6 +25,7 @@ class DetailViewModel @Inject constructor(
 
     val cryptoDataDetail = MutableLiveData<CryptoDetail?>()
     private val cryptoDataRoom = MutableLiveData<CryptoListItem>()
+
     var job: Job? = null
     private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
         Toast.makeText(getApplication(), throwable.localizedMessage, Toast.LENGTH_LONG).show()

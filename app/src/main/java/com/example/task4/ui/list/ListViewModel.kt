@@ -1,7 +1,6 @@
 package com.example.task4.ui.list
 
 import android.app.Application
-import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import com.example.task4.dao.CryptoDatabase
 import com.example.task4.di.RetrofitModule
@@ -55,7 +54,6 @@ class ListViewModel @Inject constructor(
     *
     * CoroutineScope yerine viewModelScope kullanılabilir
     * */
-
     private fun getCryptoDataFromAPI() {
         job = CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
             val response = retrofitModule.retrofitBuilder().getCryptoListData()
