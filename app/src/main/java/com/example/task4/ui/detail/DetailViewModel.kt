@@ -1,7 +1,6 @@
 package com.example.task4.ui.detail
 
 import android.app.Application
-import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.task4.dao.CryptoDatabase
@@ -38,6 +37,7 @@ class DetailViewModel @Inject constructor(
                     cryptoDataDetail.value = response.body()
                 } else {
                     cryptoDataDetail.value = null
+
                 }
             }
         }
@@ -50,7 +50,7 @@ class DetailViewModel @Inject constructor(
             cryptoDataRoom.value = crypto
         }
     }
-
+    
     override fun onCleared() {
         super.onCleared()
         job?.cancel()

@@ -3,6 +3,7 @@ package com.example.task4.ui.list
 import android.app.Application
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.example.task4.dao.CryptoDatabase
 import com.example.task4.di.RetrofitModule
 import com.example.task4.model.CryptoListItem
@@ -31,6 +32,14 @@ class ListViewModel @Inject constructor(
         Toast.makeText(getApplication(), throwable.localizedMessage, Toast.LENGTH_LONG).show()
     }
 
+    /*
+    *
+    * bu task'te iki coroutine var çünkü ilk olarak Dispatchers.IO ile çağırıyoruz
+    * ve son olarak Dispatchers.Main ile çağırıyoruz. Böylece kullanıcı arayüzünü main olarak güncelliyoruz.
+    *
+    * CoroutineScope yerine viewModelScope kullanılabilir
+    * */
+
     fun refreshData() {
         val updateTime = customSharedPreferences.getTime()
         if (updateTime != null && updateTime != 0L && System.nanoTime() - updateTime < refreshTime) {
@@ -47,14 +56,6 @@ class ListViewModel @Inject constructor(
             Toast.makeText(getApplication(), "Crypto data from SQLite", Toast.LENGTH_LONG).show()
         }
     }
-
-    /*
-    *
-    * bu task'te iki coroutine var çünkü ilk olarak Dispatchers.IO ile çağırıyoruz
-    * ve son olarak Dispatchers.Main ile çağırıyoruz. Böylece kullanıcı arayüzünü main olarak güncelliyoruz.
-    *
-    * CoroutineScope yerine viewModelScope kullanılabilir
-    * */
 
     private fun getCryptoDataFromAPI() {
         job = CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
