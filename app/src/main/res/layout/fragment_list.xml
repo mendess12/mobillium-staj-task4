@@ -6,14 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".ui.list.ListFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_view"
+        style="@style/medium_14sp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="wrap_content"
+        android:background="@color/search_view_background"
+        app:closeIcon="@drawable/baseline_close_24"
+        app:iconifiedByDefault="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:queryHint="@string/search"
+        app:searchIcon="@drawable/baseline_search_24" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="@dimen/margin_0dp"
+        android:layout_height="@dimen/margin_0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search_view"
         tools:listitem="@layout/recycler_row" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

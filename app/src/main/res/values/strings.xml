@@ -9,4 +9,6 @@
     <string name="trade_volume_24h_btc">Trade Volume 1</string>
     <string name="trade_volume_24h_btc_normalized">Trade Volume 2</string>
     <string name="facebook_url">Facebook Url</string>
+    <string name="search">Search</string>
+    <string name="crypto">Crypto</string>
 </resources>

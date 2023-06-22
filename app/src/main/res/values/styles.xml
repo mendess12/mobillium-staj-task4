@@ -15,4 +15,11 @@
         <item name="android:textColor">@color/text_color</item>
     </style>
 
+    <style name="medium_14sp" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/text_size_14sp</item>
+        <item name="android:padding">@dimen/padding_5dp</item>
+        <item name="fontFamily">@font/inter_medium</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
 </resources>
