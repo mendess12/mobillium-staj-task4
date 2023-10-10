@@ -92,11 +92,10 @@ def nav_version = "2.5.3"
 <hr>
 
 ### UI Tasarımları
+
 #### Crypto List
 ![Ekran Görüntüsü (75)](https://github.com/mendess12/mobillium-staj-task4/assets/76566952/6bb4c724-e875-4950-af33-06abe8f89c11)
-#### Detail Crypto
-![untitled](https://github.com/mendess12/mobillium-staj-task4/assets/76566952/741ca2df-3506-4d6d-8e4c-744d5085d168)
-#### Search Crypto
-![untitled](https://github.com/mendess12/mobillium-staj-task4/assets/76566952/cf20cb6f-890a-40a2-bd97-0f0642c5361d)
 
-
+| Detail Crypto     | Product List of Category |
+| ------------------------- | ------------------------- |
+| ![untitled](https://github.com/mendess12/mobillium-staj-task4/assets/76566952/741ca2df-3506-4d6d-8e4c-744d5085d168) | ![untitled](https://github.com/mendess12/mobillium-staj-task4/assets/76566952/cf20cb6f-890a-40a2-bd97-0f0642c5361d) |
